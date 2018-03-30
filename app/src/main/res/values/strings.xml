@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">时间有限</string>
+    <string name="app_list">应用列表</string>
+    <string name="empty_limit_list">请添加应用</string>
+    <string name="no_data_today">今天还没有打开过</string>
+</resources>

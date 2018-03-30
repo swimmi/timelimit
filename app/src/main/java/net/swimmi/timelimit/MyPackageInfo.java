@@ -1,0 +1,41 @@
+package net.swimmi.timelimit;
+
+import android.content.Context;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
+
+import java.util.List;
+
+/**
+ * Created by swimmi on 2018/3/29.
+ */
+
+public class MyPackageInfo {
+    private List<ApplicationInfo> appList;
+
+    public MyPackageInfo(Context context){
+        //通包管理器，检索所有的应用程序（甚至卸载的）与数据目录
+        PackageManager pm = context.getApplicationContext().getPackageManager();
+        appList = pm.getInstalledApplications(PackageManager.GET_UNINSTALLED_PACKAGES);
+    }
+
+
+    /**
+     * 通过一个程序名返回该程序的一个Application对象。
+     * @param name  程序名
+     * @return  ApplicationInfo
+     */
+
+    public ApplicationInfo getInfo(String name){
+        if(name == null){
+            return null;
+        }
+        for(ApplicationInfo appinfo : appList){
+            if(name.equals(appinfo.processName)){
+                return appinfo;
+            }
+        }
+        return null;
+    }
+
+}
